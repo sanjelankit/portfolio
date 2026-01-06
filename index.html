@@ -16,7 +16,8 @@
         .sidebar-blur { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-900">
+<body 
+    class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300"
 
     <aside class="fixed left-0 top-0 h-screen w-72 sidebar-blur border-r border-slate-200 p-8 flex flex-col hidden lg:flex">
         <div class="mb-10 text-center">
@@ -48,22 +49,25 @@
             </button>
         </nav>
 
-      <div class="pt-6 border-t border-slate-100 flex justify-center gap-5 text-slate-400">
-    <a href="https://github.com/sanjelankit" target="_blank" class="hover:text-black transition-colors" title="GitHub">
+    <div class="pt-6 border-t border-slate-100 dark:border-slate-800 flex justify-center items-center gap-4 text-slate-400">
+    <a href="https://github.com/sanjelankit" target="_blank" class="hover:text-black dark:hover:text-white transition-colors">
         <i data-lucide="github" class="w-5 h-5"></i>
     </a>
-    
-    <a href="https://www.linkedin.com/in/sanjelankit/" target="_blank" class="hover:text-blue-600 transition-colors" title="LinkedIn">
+    <a href="https://www.linkedin.com/in/sanjelankit/" target="_blank" class="hover:text-blue-600 transition-colors">
         <i data-lucide="linkedin" class="w-5 h-5"></i>
     </a>
-    
-    <a href="https://www.youtube.com/c/Cubeast" target="_blank" class="hover:text-red-600 transition-colors" title="YouTube - Cubeast">
+    <a href="https://www.youtube.com/c/Cubeast" target="_blank" class="hover:text-red-600 transition-colors">
         <i data-lucide="youtube" class="w-5 h-5"></i>
     </a>
-
-    <a href="https://www.instagram.com/ankitsanjel/" target="_blank" class="hover:text-pink-600 transition-colors" title="Instagram">
+    <a href="https://www.instagram.com/ankitsanjel/" target="_blank" class="hover:text-pink-600 transition-colors">
         <i data-lucide="instagram" class="w-5 h-5"></i>
     </a>
+
+    <span class="text-slate-200 dark:text-slate-700">|</span>
+    
+    <button onclick="toggleDarkMode()" class="hover:text-slate-900 dark:hover:text-yellow-400 transition-all" id="theme-toggle">
+        <i data-lucide="moon" id="theme-icon" class="w-5 h-5"></i>
+    </button>
 </div>
     </aside>
 
@@ -366,52 +370,100 @@
 
     </main>
 
-    <script>
-        // Initialize Icons
+  // 1. TAILWIND CONFIG (Must be at the top)
+tailwind.config = {
+    darkMode: 'class',
+}
+
+// 2. INITIALIZE THEME (Prevents "flashing" white on refresh if dark mode is on)
+if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.classList.add('dark');
+} else {
+    document.documentElement.classList.remove('dark');
+}
+
+// 3. INITIALIZE ICONS
+lucide.createIcons();
+
+// 4. THEME TOGGLE FUNCTION
+function toggleDarkMode() {
+    const html = document.documentElement;
+    const isDark = html.classList.contains('dark');
+    
+    if (isDark) {
+        html.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+    } else {
+        html.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+    }
+    
+    // Update the icons to switch between sun/moon
+    updateThemeIcon();
+}
+
+function updateThemeIcon() {
+    const icon = document.getElementById('theme-icon');
+    if (icon) {
+        const isDark = document.documentElement.classList.contains('dark');
+        icon.setAttribute('data-lucide', isDark ? 'sun' : 'moon');
         lucide.createIcons();
+    }
+}
 
-        // PAGE SWITCHER LOGIC (Functional Nav)
-        function showPage(pageId) {
-            // Hide all pages
-            document.querySelectorAll('.page-section').forEach(section => {
-                section.classList.remove('active');
-            });
-            // Show selected page
-            document.getElementById(pageId).classList.add('active');
-
-            // Update Nav UI
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.classList.remove('active', 'bg-blue-600', 'text-white');
-                link.classList.add('text-slate-500');
-            });
-            const activeBtn = event.currentTarget;
-            activeBtn.classList.add('active', 'bg-blue-600', 'text-white');
-            activeBtn.classList.remove('text-slate-500');
-        }
-        function showPost(postId) {
-    // Hide all sections
+// 5. PAGE SWITCHER LOGIC
+function showPage(pageId) {
+    // Hide all pages
     document.querySelectorAll('.page-section').forEach(section => {
         section.classList.remove('active');
     });
-    // Show the post-view section
-    document.getElementById('post-view').classList.add('active');
     
-    // Smooth scroll to top
+    // Show selected page
+    const targetPage = document.getElementById(pageId);
+    if (targetPage) targetPage.classList.add('active');
+
+    // Update Nav UI (Fixing the 'event' error)
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active', 'bg-emerald-600', 'text-white'); // Changed to Emerald to match your new theme
+        link.classList.add('text-slate-500', 'dark:text-slate-400');
+    });
+
+    // Find the button that was clicked and highlight it
+    // We search for the button that has the onclick calling this specific pageId
+    const activeBtn = document.querySelector(`button[onclick*="showPage('${pageId}')"]`);
+    if (activeBtn) {
+        activeBtn.classList.add('active', 'bg-emerald-600', 'text-white');
+        activeBtn.classList.remove('text-slate-500', 'dark:text-slate-400');
+    }
+    
     window.scrollTo({top: 0, behavior: 'smooth'});
 }
 
-        // COPY EMAIL LOGIC
-        function copyEmail(btn) {
-            const email = "sanjelankit@gmail.com";
-            navigator.clipboard.writeText(email).then(() => {
-                const span = btn.querySelector('span');
-                span.innerText = "Copied!";
-                setTimeout(() => { span.innerText = "Copy Email"; }, 2000);
-            });
-        }
-    </script>
+// 6. BLOG POST LOGIC
+function showPost(postId) {
+    document.querySelectorAll('.page-section').forEach(section => {
+        section.classList.remove('active');
+    });
+    document.getElementById('post-view').classList.add('active');
+    window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+// 7. COPY EMAIL LOGIC
+function copyEmail(btn) {
+    const email = "sanjelankit@gmail.com";
+    navigator.clipboard.writeText(email).then(() => {
+        const span = btn.querySelector('span');
+        const originalText = span.innerText;
+        span.innerText = "Copied!";
+        setTimeout(() => { span.innerText = originalText; }, 2000);
+    });
+}
+
+// Call this on load to set the correct icon
+updateThemeIcon();
 </body>
 
 </html>
+
 
 
