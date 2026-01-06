@@ -69,60 +69,49 @@
 
     <main class="lg:ml-72 p-6 lg:p-12">
         
-        <section id="home" class="page-section active max-w-4xl">
-          <header class="mb-12">
-    <div class="flex items-center gap-2 mb-8">
-        <span class="px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-bold rounded-full flex items-center gap-1.5 w-fit uppercase tracking-wider">
-            <span class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
-            Available for Internships
-        </span>
-    </div>
+      <section id="home" class="page-section active max-w-4xl animate-fadeIn">
+    <header class="mb-12">
+        <div class="flex items-center gap-2 mb-8">
+            <span class="px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-bold rounded-full flex items-center gap-1.5 w-fit uppercase tracking-wider">
+                <span class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
+                Available for Internships
+            </span>
+        </div>
 
-    <h1 class="text-6xl font-bold text-slate-900 mb-2 tracking-tight">Hey There! I'm Ankit</h1>
-    <p class="text-xl text-slate-500 mb-8 font-medium">
-        Java Developer |  Full Stack Developer | Machine Learning Enthusiast
-    </p>
-
-    <div class="max-w-3xl">
-        <p class="text-lg text-slate-600 leading-relaxed space-y-6">
-            I have a deep-rooted passion for technology and programming, which drives my pursuit of a 
-            <span class="text-slate-900 font-semibold">Computer Science degree at Saginaw Valley State University</span>. 
-            I also have a strong affinity for art and design, and I strive to incorporate aesthetic 
-            clarity into my technical work as a <span class="text-slate-900 font-semibold">UI/UX and Graphic Designer</span>.
+        <h1 class="text-6xl font-bold text-slate-900 mb-2 tracking-tight">Ankit Sanjel</h1>
+        <p class="text-xl text-slate-500 mb-8 font-medium">
+            Developer | Designer | Critical Thinker
         </p>
-        
-        <p class="text-lg text-slate-600 leading-relaxed mt-4">
-            I have always been a critical thinker who enjoys challenges requiring deep thought and 
-            rigorous analysis. This mindset spans from my strategic play in <span class="text-slate-900 font-semibold">Chess</span> 
-            to holding a <span class="text-slate-900 font-semibold">National Record in Rubik's Cube solving</span>. 
-            I am excited to continue learning, growing, and creating impactful digital solutions!
-        </p>
-    </div>
-</header>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="p-6 bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
-                    <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-4"><i data-lucide="database"></i></div>
-                    <h3 class="font-bold text-lg">Full-Stack Dev</h3>
-                    <p class="text-slate-500 text-sm mt-2">Node.js, React, and MongoDB architecture.</p>
-                </div>
-                <div class="p-6 bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
-                    <div class="w-12 h-12 bg-purple-50 text-purple-600 rounded-2xl flex items-center justify-center mb-4"><i data-lucide="brain-circuit"></i></div>
-                    <h3 class="font-bold text-lg">Machine Learning</h3>
-                    <p class="text-slate-500 text-sm mt-2">Data analysis and predictive modeling with Python.</p>
-                </div>
-            </div>
+        <div class="max-w-3xl">
+            <p class="text-lg text-slate-600 leading-relaxed mb-6">
+                I have a deep-rooted passion for technology and programming, which drives my pursuit of a 
+                <span class="text-slate-900 font-semibold">Computer Science degree at Saginaw Valley State University</span>. 
+                I also have a strong affinity for art and design, and I strive to incorporate aesthetic 
+                clarity into my technical work as a <span class="text-slate-900 font-semibold">UI/UX and Graphic Designer</span>.
+            </p>
+            
+            <p class="text-lg text-slate-600 leading-relaxed mb-10">
+                I have always been a critical thinker who enjoys challenges requiring deep thought and 
+                rigorous analysis. This mindset spans from my strategic play in <span class="text-slate-900 font-semibold">Chess</span> 
+                to holding a <span class="text-slate-900 font-semibold">National Record in Rubik's Cube solving</span>. 
+            </p>
+        </div>
 
-            <div class="mt-12 flex gap-4">
-                <button onclick="window.print()" class="px-8 py-4 bg-slate-900 text-white rounded-2xl font-bold flex items-center gap-2 hover:bg-black transition-all">
-                    <i data-lucide=""C:\Users\Sanje\Desktop\AnkitSanjel2026.pdf""></i> Download CV
-                </button>
-                <button onclick="copyEmail(this)" class="px-8 py-4 bg-white border border-slate-200 rounded-2xl font-bold flex items-center gap-2 hover:bg-slate-50 transition-all">
-                    <i data-lucide="copy"></i> <span>Copy Email</span>
-                </button>
-            </div>
-        </section>
-
+        <div class="flex flex-wrap gap-4 mt-12">
+            <a href="AnkitSanjel2026.pdf" 
+               download="AnkitSanjel2026.pdf" 
+               class="px-8 py-4 bg-slate-900 text-white rounded-2xl font-bold flex items-center gap-2 hover:bg-black transition-all shadow-lg shadow-gray-200">
+                <i data-lucide="download" class="w-5 h-5"></i>
+                <span>Download CV</span>
+            </a>
+            
+            <button onclick="copyEmail(this)" class="px-8 py-4 bg-white border border-slate-200 rounded-2xl font-bold flex items-center gap-2 hover:bg-slate-50 transition-all text-slate-700">
+                <i data-lucide="copy" class="w-5 h-5"></i> <span>Copy Email</span>
+            </button>
+        </div>
+    </header>
+</section>
         <section id="projects" class="page-section max-w-5xl">
             <h2 class="text-4xl font-extrabold mb-10">Selected Projects</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -424,4 +413,5 @@
 </body>
 
 </html>
+
 
