@@ -40,6 +40,9 @@
             <button onclick="showPage('about')" class="nav-link w-full flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-100 rounded-xl transition-all">
                 <i data-lucide="user-round"></i> About Me
             </button>
+            <button onclick="showPage('blog')" class="nav-link w-full flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-100 rounded-xl transition-all">
+    <i data-lucide="book-open"></i> Blog
+            </button>
             <button onclick="showPage('contact')" class="nav-link w-full flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-100 rounded-xl transition-all">
                 <i data-lucide="send"></i> Contact
             </button>
@@ -269,6 +272,57 @@
         </div>
     </div>
 </section>
+        <section id="blog" class="page-section max-w-5xl">
+    <h2 class="text-4xl font-extrabold mb-10 tracking-tight">Blog</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div onclick="showPost('wca-2025')" class="group cursor-pointer bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300">
+            <div class="h-52 bg-slate-200 overflow-hidden">
+                <img src="wc2025-logo.png" alt="WCA World Championship 2025" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            </div>
+            <div class="p-6">
+                <span class="text-xs font-bold text-emerald-600 uppercase tracking-widest">Travel & Competition</span>
+                <h3 class="text-xl font-bold mt-2 group-hover:text-emerald-600 transition-colors">Competing at the WCA World Championship 2025: An Experience of a Lifetime</h3>
+                <p class="text-slate-500 mt-3 text-sm line-clamp-2">Representing my country on a global stage was beyond thrilling, and I participated in eight different events...</p>
+                <div class="mt-4 flex items-center text-sm font-bold text-slate-900">
+                    Read Post <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="post-view" class="page-section max-w-4xl">
+    <button onclick="showPage('blog')" class="flex items-center gap-2 text-slate-500 hover:text-black mb-8 transition-colors font-bold">
+        <i data-lucide="chevron-left"></i> Back to Blog
+    </button>
+    
+    <div id="wca-2025" class="animate-fadeIn">
+        <h1 class="text-4xl md:text-5xl font-black text-slate-900 leading-tight mb-8">Competing at the WCA World Championship 2025: An Experience of a Lifetime</h1>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+            <div class="lg:col-span-2 prose prose-slate text-slate-600 text-lg leading-relaxed space-y-6">
+                <p>In 2025, I had the incredible opportunity to compete in the WCA World Championship, an event that brought together 2,000 competitors from 80 countries. Representing my country on such a global stage was beyond thrilling, and I participated in eight different events, each pushing me to test my skills, focus, and resilience in ways I never imagined.</p>
+                
+                <p>One of the proudest moments of my life was being chosen as a flag bearer during the opening ceremony. Carrying my country’s flag while walking among so many talented individuals I had admired growing up was deeply emotional—it was a culmination of years of practice, dedication, and dreams that suddenly felt real.</p>
+                
+                <p>Beyond competing, I also volunteered at the event, helping organizers ensure the competition ran smoothly. Being part of the behind-the-scenes efforts gave me a new appreciation for the teamwork and planning required to run such a massive event.</p>
+                
+                <p>The championship lasted six days, and on the last day of my trip, I decided to explore Seattle alone. That solo adventure turned out to be just as memorable as the competition itself. I visited the Space Needle, wandered through the aquarium, rode the Loop scooters downtown, and finally explored the Space Museum and Museum of Flight. Walking the streets of a vibrant city alone gave me space for self-reflection and allowed me to appreciate the scale, diversity, and beauty of the world around me.</p>
+                
+                <p>Living in a small campus town like Saginaw, life tends to move slowly. Trips like this remind me of how vast and colorful the world is, and they make me grateful for the quiet, steady life I have at home. Seeing the world in such a concentrated, vivid way gave me perspective, inspiration, and a deep sense of gratitude.</p>
+                
+                <p class="font-bold text-slate-900 italic pt-4">The WCA World Championship 2025 was more than just a competition—it was an emotional journey, a celebration of global talent, and a personal adventure.</p>
+            </div>
+            
+            <div class="lg:col-span-1">
+                <div class="sticky top-12">
+                    <img src="flagbearer.jpeg" alt="Flag Bearer" class="rounded-3xl shadow-2xl border-4 border-white rotate-2 hover:rotate-0 transition-transform duration-500 w-full object-cover">
+                    <p class="text-xs text-slate-400 mt-4 text-center font-medium italic italic">Flag bearer at the Opening Ceremony</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
         <section id="contact" class="page-section max-w-xl">
             <h2 class="text-4xl font-extrabold mb-8">Get in Touch</h2>
@@ -315,6 +369,17 @@
             activeBtn.classList.add('active', 'bg-blue-600', 'text-white');
             activeBtn.classList.remove('text-slate-500');
         }
+        function showPost(postId) {
+    // Hide all sections
+    document.querySelectorAll('.page-section').forEach(section => {
+        section.classList.remove('active');
+    });
+    // Show the post-view section
+    document.getElementById('post-view').classList.add('active');
+    
+    // Smooth scroll to top
+    window.scrollTo({top: 0, behavior: 'smooth'});
+}
 
         // COPY EMAIL LOGIC
         function copyEmail(btn) {
@@ -327,4 +392,5 @@
         }
     </script>
 </body>
+
 </html>
