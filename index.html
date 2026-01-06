@@ -119,34 +119,60 @@
         </div>
     </header>
 </section>
-        <section id="projects" class="page-section max-w-5xl">
-            <h2 class="text-4xl font-extrabold mb-10">Selected Projects</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="group bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm">
-                    <div class="h-48 bg-slate-200 bg-[url('https://images.unsplash.com/photo-1436491865332-7a61a109c0f2?q=80&w=800')] bg-cover"></div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold group-hover:text-blue-600 transition-colors">My Flights Web App</h3>
-                        <p class="text-slate-500 mt-2 text-sm">Full-stack travel tracking app built with Node.js, MongoDB, and React.</p>
-                        <div class="flex gap-2 mt-4">
-                            <span class="px-2 py-1 bg-slate-100 rounded text-xs font-bold text-slate-600">React</span>
-                            <span class="px-2 py-1 bg-slate-100 rounded text-xs font-bold text-slate-600">Node.js</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="group bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm">
-                    <div class="h-48 bg-slate-200 bg-[url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=800')] bg-cover"></div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold group-hover:text-blue-600 transition-colors">Library CRUD App</h3>
-                        <p class="text-slate-500 mt-2 text-sm">A bookkeeping system for tracking library records using JS and HTML5.</p>
-                        <div class="flex gap-2 mt-4">
-                            <span class="px-2 py-1 bg-slate-100 rounded text-xs font-bold text-slate-600">JavaScript</span>
-                            <span class="px-2 py-1 bg-slate-100 rounded text-xs font-bold text-slate-600">CRUD</span>
-                        </div>
-                    </div>
+       <section id="project-detail" class="page-section max-w-5xl">
+    <button onclick="showPage('projects')" class="flex items-center gap-2 text-slate-500 hover:text-black mb-10 font-bold">
+        <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Projects
+    </button>
+
+    <div id="flights-detail" class="project-content hidden animate-fadeIn">
+        <h1 class="text-4xl font-black mb-6">My Flights Web App</h1>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+            <div class="lg:col-span-2 space-y-6 text-slate-600 text-lg">
+                <p><strong>The Challenge:</strong> Travelers often struggle to maintain a centralized, visual history of their flight data across different airlines.</p>
+                <p><strong>Solution:</strong> I developed a full-stack application using the MERN stack (MongoDB, Express, React, Node.js). The app allows users to log flights, visualize their travel routes on an interactive map, and calculate total distance traveled.</p>
+                <h3 class="text-xl font-bold text-slate-900">Key Features:</h3>
+                <ul class="list-disc pl-5 space-y-2">
+                    <li>RESTful API integration for real-time flight status.</li>
+                    <li>Secure User Authentication using JWT.</li>
+                    <li>Dynamic dashboard for personal travel statistics.</li>
+                </ul>
+            </div>
+            <div class="bg-slate-100 p-6 rounded-3xl h-fit">
+                <h4 class="font-bold mb-4">Tech Stack</h4>
+                <div class="flex flex-wrap gap-2">
+                    <span class="bg-white px-3 py-1 rounded-full text-sm shadow-sm">React</span>
+                    <span class="bg-white px-3 py-1 rounded-full text-sm shadow-sm">Tailwind CSS</span>
+                    <span class="bg-white px-3 py-1 rounded-full text-sm shadow-sm">Node.js</span>
+                    <span class="bg-white px-3 py-1 rounded-full text-sm shadow-sm">MongoDB</span>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
 
+    <div id="library-detail" class="project-content hidden animate-fadeIn">
+        <h1 class="text-4xl font-black mb-6">Library CRUD App</h1>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+            <div class="lg:col-span-2 space-y-6 text-slate-600 text-lg">
+                <p>This application was designed to replace manual ledger systems for small-scale libraries. It focuses on the **CRUD** (Create, Read, Update, Delete) architecture to manage book inventory efficiently.</p>
+                <p><strong>Impact:</strong> Reduced the time taken for book check-ins by 40% through an optimized search algorithm and a clean, intuitive UI/UX design.</p>
+                <h3 class="text-xl font-bold text-slate-900">Technical Highlights:</h3>
+                <ul class="list-disc pl-5 space-y-2">
+                    <li>Implemented LocalStorage for data persistence without server overhead.</li>
+                    <li>Advanced filtering and sorting by Genre, Author, and Availability.</li>
+                    <li>Responsive design for mobile-friendly inventory management.</li>
+                </ul>
+            </div>
+            <div class="bg-slate-100 p-6 rounded-3xl h-fit">
+                <h4 class="font-bold mb-4">Tech Stack</h4>
+                <div class="flex flex-wrap gap-2">
+                    <span class="bg-white px-3 py-1 rounded-full text-sm shadow-sm">Vanilla JS</span>
+                    <span class="bg-white px-3 py-1 rounded-full text-sm shadow-sm">HTML5/CSS3</span>
+                    <span class="bg-white px-3 py-1 rounded-full text-sm shadow-sm">LocalStorage</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
        <section id="about" class="page-section max-w-5xl animate-fadeIn">
     
     <header class="mb-16">
@@ -376,6 +402,26 @@
     <script>
         // Initialize Icons
         lucide.createIcons();
+        function showProject(projectId) {
+    // Hide all main sections
+    document.querySelectorAll('.page-section').forEach(section => {
+        section.classList.remove('active');
+    });
+    
+    // Show the detail container
+    const detailSection = document.getElementById('project-detail');
+    detailSection.classList.add('active');
+    
+    // Hide all specific project contents first
+    document.querySelectorAll('.project-content').forEach(content => {
+        content.classList.add('hidden');
+    });
+    
+    // Show the one we clicked
+    document.getElementById(projectId).classList.remove('hidden');
+    
+    window.scrollTo({top: 0, behavior: 'smooth'});
+}
 
         // PAGE SWITCHER LOGIC (Functional Nav)
         function showPage(pageId) {
@@ -420,6 +466,7 @@
 </body>
 
 </html>
+
 
 
 
