@@ -40,9 +40,9 @@
             <button onclick="showPage('about')" class="nav-link w-full flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-100 rounded-xl transition-all">
                 <i data-lucide="user-round"></i> About Me
             </button>
-            <button onclick="showPage('blog')" class="nav-link w-full flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-100 rounded-xl transition-all">
-    <i data-lucide="book-open"></i> Blog
-            </button>
+          <button onclick="showPage('blog')" class="nav-link w-full flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-100 rounded-xl transition-all">
+                <i data-lucide="book-open"></i> Blog
+           </button>
             <button onclick="showPage('contact')" class="nav-link w-full flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-100 rounded-xl transition-all">
                 <i data-lucide="send"></i> Contact
             </button>
@@ -272,20 +272,50 @@
         </div>
     </div>
 </section>
-        <section id="blog" class="page-section max-w-5xl">
+       <section id="blog" class="page-section max-w-5xl">
     <h2 class="text-4xl font-extrabold mb-10 tracking-tight">Blog</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div onclick="showPost('wca-2025')" class="group cursor-pointer bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300">
             <div class="h-52 bg-slate-200 overflow-hidden">
-                <img src="wc2025-logo.png" alt="WCA World Championship 2025" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <img src="wc2025-logo.png" alt="WCA 2025" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             </div>
             <div class="p-6">
-                <span class="text-xs font-bold text-emerald-600 uppercase tracking-widest">Travel & Competition</span>
-                <h3 class="text-xl font-bold mt-2 group-hover:text-emerald-600 transition-colors">Competing at the WCA World Championship 2025: An Experience of a Lifetime</h3>
-                <p class="text-slate-500 mt-3 text-sm line-clamp-2">Representing my country on a global stage was beyond thrilling, and I participated in eight different events...</p>
-                <div class="mt-4 flex items-center text-sm font-bold text-slate-900">
-                    Read Post <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Competition</span>
+                <h3 class="text-xl font-bold mt-2">Competing at the WCA World Championship 2025</h3>
+                <p class="text-slate-500 mt-3 text-sm line-clamp-2 text-slate-600">Representing my country on a global stage was beyond thrilling...</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="post-view" class="page-section max-w-5xl">
+    <button onclick="showPage('blog')" class="flex items-center gap-2 text-slate-500 hover:text-black mb-10 font-bold">
+        <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Blog
+    </button>
+    
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <div class="lg:col-span-7 prose prose-slate">
+            <h1 class="text-4xl md:text-5xl font-black text-slate-900 leading-tight mb-8">Competing at the WCA World Championship 2025: An Experience of a Lifetime</h1>
+            
+            <div class="space-y-6 text-lg text-slate-600 leading-relaxed">
+                <p>In 2025, I had the incredible opportunity to compete in the WCA World Championship, an event that brought together 2,000 competitors from 80 countries. Representing my country on such a global stage was beyond thrilling...</p>
+                
+                <p>One of the proudest moments of my life was being chosen as a flag bearer during the opening ceremony. Carrying my country’s flag while walking among so many talented individuals I had admired growing up was deeply emotional—it was a culmination of years of practice, dedication, and dreams that suddenly felt real.</p>
+                
+                <p>Beyond competing, I also volunteered at the event, helping organizers ensure the competition ran smoothly. Being part of the behind-the-scenes efforts gave me a new appreciation for the teamwork and planning required to run such a massive event.</p>
+                
+                <p>The championship lasted six days, and on the last day of my trip, I decided to explore Seattle alone. I visited the Space Needle, wandered through the aquarium, and finally explored the Space Museum and Museum of Flight, places I had dreamed of visiting since I was a kid.</p>
+                
+                <p>Living in a small campus town like Saginaw, life tends to move slowly. Trips like this remind me of how vast and colorful the world is. It gave me perspective, inspiration, and a deep sense of gratitude.</p>
+            </div>
+        </div>
+
+        <div class="lg:col-span-5">
+            <div class="sticky top-10">
+                <div class="rounded-3xl overflow-hidden shadow-2xl border-4 border-white rotate-1">
+                    <img src="flagbearer.jpeg" alt="Flag Bearer" class="w-full h-auto object-contain">
                 </div>
+                <p class="mt-4 text-sm text-slate-400 italic text-center font-medium">Flag bearer at the Opening Ceremony</p>
             </div>
         </div>
     </div>
@@ -394,3 +424,4 @@
 </body>
 
 </html>
+
