@@ -119,6 +119,35 @@
         </div>
     </header>
 </section>
+        <section id="projects" class="page-section max-w-5xl">
+    <h2 class="text-4xl font-extrabold mb-10 tracking-tight">Selected Projects</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div onclick="showProject('flights-detail')" class="group cursor-pointer bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300">
+            <div class="h-48 bg-slate-200 bg-[url('https://images.unsplash.com/photo-1436491865332-7a61a109c0f2?q=80&w=800')] bg-cover"></div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold group-hover:text-blue-600 transition-colors">My Flights Web App</h3>
+                <p class="text-slate-500 mt-2 text-sm">Full-stack travel tracking app built with Node.js, MongoDB, and React.</p>
+                <div class="flex gap-2 mt-4">
+                    <span class="px-2 py-1 bg-slate-100 rounded text-xs font-bold text-slate-600">React</span>
+                    <span class="px-2 py-1 bg-slate-100 rounded text-xs font-bold text-slate-600">Node.js</span>
+                </div>
+            </div>
+        </div>
+
+        <div onclick="showProject('library-detail')" class="group cursor-pointer bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300">
+            <div class="h-48 bg-slate-200 bg-[url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=800')] bg-cover"></div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold group-hover:text-blue-600 transition-colors">Library CRUD App</h3>
+                <p class="text-slate-500 mt-2 text-sm">A bookkeeping system for tracking library records using JS and HTML5.</p>
+                <div class="flex gap-2 mt-4">
+                    <span class="px-2 py-1 bg-slate-100 rounded text-xs font-bold text-slate-600">JavaScript</span>
+                    <span class="px-2 py-1 bg-slate-100 rounded text-xs font-bold text-slate-600">CRUD</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+        
        <section id="project-detail" class="page-section max-w-5xl">
     <button onclick="showPage('projects')" class="flex items-center gap-2 text-slate-500 hover:text-black mb-10 font-bold">
         <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Projects
@@ -466,6 +495,7 @@
 </body>
 
 </html>
+
 
 
 
