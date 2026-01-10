@@ -67,8 +67,34 @@
     </a>
 </div>
     </aside>
+<!-- Mobile Navbar -->
+<header class="lg:hidden fixed top-0 left-0 right-0 z-50 bg-white border-b border-slate-200 px-4 py-3 flex justify-between items-center">
+    <h1 class="font-extrabold text-lg">Ankit Sanjel</h1>
+    <button onclick="toggleMobileNav()" class="p-2 rounded-lg hover:bg-slate-100">
+        <i data-lucide="menu"></i>
+    </button>
+</header>
 
-    <main class="lg:ml-72 p-6 lg:p-12">
+<main class="lg:ml-72 pt-20 lg:pt-12 p-6 lg:p-12">
+
+
+<!-- Mobile Menu -->
+<div id="mobile-nav" class="lg:hidden fixed inset-0 bg-white z-40 p-6 hidden">
+    <div class="flex justify-end mb-6">
+        <button onclick="toggleMobileNav()">
+            <i data-lucide="x"></i>
+        </button>
+    </div>
+
+    <nav class="space-y-4">
+        <button onclick="showPage('home'); toggleMobileNav()" class="block w-full text-left font-bold">Dashboard</button>
+        <button onclick="showPage('projects'); toggleMobileNav()" class="block w-full text-left font-bold">Projects</button>
+        <button onclick="showPage('about'); toggleMobileNav()" class="block w-full text-left font-bold">About</button>
+        <button onclick="showPage('blog'); toggleMobileNav()" class="block w-full text-left font-bold">Blog</button>
+        <button onclick="showPage('contact'); toggleMobileNav()" class="block w-full text-left font-bold">Contact</button>
+    </nav>
+</div>
+
         
       <section id="home" class="page-section active max-w-4xl animate-fadeIn">
     <header class="mb-12">
@@ -551,6 +577,9 @@ The application follows a streamlined CRUD architecture, enabling users to effic
                 setTimeout(() => { span.innerText = "Copy Email"; }, 2000);
             });
         }
+function toggleMobileNav() {
+    document.getElementById('mobile-nav').classList.toggle('hidden');
+}
     </script>
 </body>
 
