@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -120,6 +121,11 @@
     </header>
 </section>
         <section id="projects" class="page-section max-w-5xl">
+
+ <button onclick="showPage('home')" class="flex items-center gap-2 text-slate-500 hover:text-black mb-10 font-bold">
+        <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to DashBoard
+    </button>
+
     <h2 class="text-4xl font-extrabold mb-10 tracking-tight">Selected Projects</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div onclick="showProject('flights-detail')" class="group cursor-pointer bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300">
@@ -134,18 +140,27 @@
             </div>
         </div>
 
-        <div onclick="showProject('library-detail')" class="group cursor-pointer bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300">
-            <div class="h-48 bg-slate-200 bg-[url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=800')] bg-cover"></div>
-            <div class="p-6">
-                <h3 class="text-xl font-bold group-hover:text-blue-600 transition-colors">Library CRUD App</h3>
-                <p class="text-slate-500 mt-2 text-sm">A bookkeeping system for tracking library records using JS and HTML5.</p>
-                <div class="flex gap-2 mt-4">
-                    <span class="px-2 py-1 bg-slate-100 rounded text-xs font-bold text-slate-600">JavaScript</span>
-                    <span class="px-2 py-1 bg-slate-100 rounded text-xs font-bold text-slate-600">CRUD</span>
-                </div>
-            </div>
+ <div onclick="showProject('library-detail')" 
+     class="group cursor-pointer bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300">
+
+    <div class="h-48 bg-slate-200 bg-[url('kitabalaya.png')] bg-cover bg-center"></div>
+
+    <div class="p-6">
+        <h3 class="text-xl font-bold group-hover:text-blue-600 transition-colors">
+            Kitabalaya: A Library Management App
+        </h3>
+        <p class="text-slate-500 mt-2 text-sm">
+            A bookkeeping system for tracking library records using JS and HTML5.
+        </p>
+        <div class="flex gap-2 mt-4">
+            <span class="px-2 py-1 bg-slate-100 rounded text-xs font-bold text-slate-600">HTML/CSS</span>
+            <span class="px-2 py-1 bg-slate-100 rounded text-xs font-bold text-slate-600">JavaScript</span>
+            <span class="px-2 py-1 bg-slate-100 rounded text-xs font-bold text-slate-600">CRUD Functionality</span>
         </div>
     </div>
+</div>
+
+
 </section>
         
        <section id="project-detail" class="page-section max-w-5xl">
@@ -179,16 +194,23 @@
     </div>
 
     <div id="library-detail" class="project-content hidden animate-fadeIn">
-        <h1 class="text-4xl font-black mb-6">Library CRUD App</h1>
+        <h1 class="text-4xl font-black mb-6">Kitabalaya: A Library Management App </h1>
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
             <div class="lg:col-span-2 space-y-6 text-slate-600 text-lg">
-                <p>This application was designed to replace manual ledger systems for small-scale libraries. It focuses on the **CRUD** (Create, Read, Update, Delete) architecture to manage book inventory efficiently.</p>
-                <p><strong>Impact:</strong> Reduced the time taken for book check-ins by 40% through an optimized search algorithm and a clean, intuitive UI/UX design.</p>
+                <p>TKitabalaya is a lightweight, browser-based library management application designed to digitize and simplify book inventory operations for small to mid-sized libraries. Built with performance and ease of use in mind, the system replaces traditional manual ledger tracking with a clean, intuitive interface that requires no backend server, setup, or external dependencies.
+
+The application follows a streamlined CRUD architecture, enabling users to efficiently add, view, update, and remove books with persistent client-side storage. A minimal yet informative dashboard provides real-time insights into inventory size, availability, and borrowing status, ensuring quick decision-making without unnecessary complexity</p>
+
+                <p><strong>Impact:</strong> By combining instant search, genre-based filtering, and status-based organization, Kitabalaya minimizes overhead and significantly reduces the time required to manage records—all while maintaining a fast, responsive, and user-friendly experience.</p>
+
                 <h3 class="text-xl font-bold text-slate-900">Technical Highlights:</h3>
                 <ul class="list-disc pl-5 space-y-2">
-                    <li>Implemented LocalStorage for data persistence without server overhead.</li>
-                    <li>Advanced filtering and sorting by Genre, Author, and Availability.</li>
-                    <li>Responsive design for mobile-friendly inventory management.</li>
+                    <li>Lightweight, dependency-free architecture using vanilla JavaScript, HTML5, and CSS</li>
+                    <li>LocalStorage-based persistence, eliminating backend and database overhead</li>
+                    <li>Full CRUD operations with real-time UI updates</li>
+                    <li> fast client side search and filterin by title, author, genre and availability.</li>
+    <li>Responsive, mobile-friendly design optimized for low-resource environments</li>
+
                 </ul>
             </div>
             <div class="bg-slate-100 p-6 rounded-3xl h-fit">
@@ -201,8 +223,37 @@
             </div>
         </div>
     </div>
+<div class="lg:col-span-5">
+            <div class="sticky top-10">
+                <div class="rounded-3xl overflow-hidden shadow-2xl border-4 border-white ">
+                    <img src="overview.jpg" alt="Flag Bearer" class="w-full h-auto object-contain">
+                </div>
+                <p class="mt-4 text-sm text-slate-400 italic text-center font-medium">An overview of the App.</p>
+            </div>
+        </div>
+    </div>
+<div class="lg:col-span-5">
+            <div class="sticky top-10">
+                <div class="rounded-3xl overflow-hidden shadow-2xl border-4 border-white ">
+                    <img src="inventory.jpg" alt="Flag Bearer" class="w-full h-auto object-contain">
+                </div>
+                <p class="mt-4 text-sm text-slate-400 italic text-center font-medium">Inventory Section</p>
+            </div>
+        </div>
+    </div><div class="lg:col-span-5">
+            <div class="sticky top-10">
+                <div class="rounded-3xl overflow-hidden shadow-2xl border-4 border-white ">
+                    <img src="addnewbook.jpg" alt="Flag Bearer" class="w-full h-auto object-contain">
+                </div>
+                <p class="mt-4 text-sm text-slate-400 italic text-center font-medium">Feature to Add or Delete a Book</p>
+            </div>
+        </div>
+    </div>
 </section>
        <section id="about" class="page-section max-w-5xl animate-fadeIn">
+ <button onclick="showPage('home')" class="flex items-center gap-2 text-slate-500 hover:text-black mb-10 font-bold">
+        <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to DashBoard
+    </button>
     
     <header class="mb-16">
         <h1 class="text-6xl font-bold text-slate-900 mb-2 tracking-tight">Ankit Sanjel</h1>
@@ -324,6 +375,12 @@
     </div>
 </section>
        <section id="blog" class="page-section max-w-5xl">
+
+ <button onclick="showPage('home')" class="flex items-center gap-2 text-slate-500 hover:text-black mb-10 font-bold">
+        <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to DashBoard
+    </button>
+
+
     <h2 class="text-4xl font-extrabold mb-10 tracking-tight">Blog</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div onclick="showPost('wca-2025')" class="group cursor-pointer bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300">
@@ -406,6 +463,9 @@
 </section>
 
         <section id="contact" class="page-section max-w-xl">
+ <button onclick="showPage('home')" class="flex items-center gap-2 text-slate-500 hover:text-black mb-10 font-bold">
+        <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to DashBoard
+    </button>
             <h2 class="text-4xl font-extrabold mb-8">Get in Touch</h2>
             <form class="space-y-4" onsubmit="event.preventDefault(); alert('Message feature would connect to a backend here!');">
                 <div>
